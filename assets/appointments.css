@@ -1,0 +1,190 @@
+/* File: assets/appointments.css */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard-page {
+  min-height: 100vh;
+  /* MÀU NỀN TRẢ VỀ NHƯ CŨ (Tím/Xanh theo ảnh) */
+  background-color: #6a74f4; 
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  color: #fff;
+}
+
+/* ===================================
+   HEADER: CÓ VIỀN ĐẬM VÀ TÁCH BIỆT
+   =================================== */
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  /* Màu đậm hơn nền một chút để tách biệt */
+  background-color: #5c65de; 
+  /* VIỀN ĐẬM dưới đáy theo yêu cầu của bạn */
+  border-bottom: 2px solid #4a52c3; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  flex-grow: 1;
+  color: white;
+}
+
+.btn-logout {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* ===================================
+   BỐ CỤC CĂN GIỮA (Không tràn viền màn hình)
+   =================================== */
+.main-content {
+  max-width: 1000px; /* Bóp chiều rộng lại cho cân đối */
+  margin: 0 auto;    /* Tự động căn giữa màn hình */
+  padding: 40px 20px;
+}
+
+/* ===================================
+   KHUNG TÌM KIẾM (Có phần nền trắng rộng)
+   =================================== */
+.search-wrapper {
+  background-color: white;
+  padding: 24px; /* Tạo phần nền trắng rộng xung quanh ô input */
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.search-input {
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 16px;
+  padding: 14px 16px;
+  color: #333;
+  outline: none;
+}
+.search-input::placeholder { color: #9ca3af; }
+
+/* Thông tin số lượng và nút Đặt lịch */
+.info-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 15px;
+}
+
+/* ===================================
+   LƯỚI THẺ: CHÍNH XÁC 3 Ô 1 HÀNG
+   =================================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Bắt buộc 3 cột */
+  gap: 24px; /* Khoảng cách giữa các ô */
+}
+
+/* ===================================
+   THIẾT KẾ Ô THẺ (Card)
+   =================================== */
+.appt-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-header-color {
+  /* Màu gradient phần trên của thẻ */
+  background: linear-gradient(135deg, #717cf7 0%, #a25bc2 100%);
+  padding: 16px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header-color h3 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+  color: white;
+}
+.status-active { background-color: #10b981; }
+.status-pending { background-color: #f59e0b; }
+
+.card-body-white {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  color: #333;
+}
+
+.info-row {
+  display: flex;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.info-label {
+  width: 80px;
+  color: #555;
+  font-weight: 600;
+}
+
+.info-value {
+  flex-grow: 1;
+  color: #222;
+}
+
+.card-desc {
+  font-size: 12px;
+  color: #666;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.btn-detail {
+  width: 100%;
+  padding: 12px;
+  background-color: #5a67d8;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-top: auto;
+}
+
+/* Các đoạn CSS của Modal (Cửa sổ nổi) phía dưới giữ nguyên như cũ */
+.modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.6); display: flex; justify-content: center; align-items: center; z-index: 1000; }
+.modal-content { background: white; border-radius: 12px; width: 90%; max-width: 500px; color: #333; overflow: hidden; }
+.modal-header { padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; font-size: 20px; font-weight: bold; }
+.btn-close { background: none; border: none; font-size: 20px; cursor: pointer; color: #666; }
+.modal-body { padding: 20px; }
+.modal-body label { display: block; font-weight: 500; margin-bottom: 4px; color: #555; }
+.modal-body input, .modal-body select { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px; }
+.modal-footer { padding: 16px 20px; background: #f9fafb; display: flex; justify-content: flex-end; gap: 10px; }
+.btn-delete { background: #ef4444; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.btn-save { background: #5a67d8; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.btn-cancel { background: #6b7280; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; }
