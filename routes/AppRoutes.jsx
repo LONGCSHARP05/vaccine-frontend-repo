@@ -14,11 +14,20 @@ function ProtectedRoute({ children }) {
   return children;
 }
 
+// Các component của Staff
+import PatientManagement from "../pages/staff/PatientManagement";
+import PatientForm from "../pages/staff/PatientForm";
+import VaccineHistory from "../pages/staff/VaccineHistory";
+
+// Giả sử nhóm bạn có một layout riêng cho nhân viên
+// import StaffLayout from "../layouts/StaffLayout"; 
+
 function AppRoutes() {
   const token = getToken();
 
   return (
     <Routes>
+      {/* Route Public & Điều hướng mặc định */}
       <Route
         path="/"
         element={
@@ -26,6 +35,8 @@ function AppRoutes() {
         }
       />
       <Route path="/login" element={<Login />} />
+
+      {/* CÁC ROUTE DÀNH CHO VACCINE (từ nhánh feature/toggle-view) */}
       <Route
         path="/vaccines"
         element={
@@ -38,6 +49,14 @@ function AppRoutes() {
         path="/vaccinesearch"
         element={<VaccineSearch />}
       />
+
+      {/* CÁC ROUTE DÀNH CHO NHÂN VIÊN (từ nhánh main) */}
+      {/* Bọc trong StaffLayout nếu nhóm bạn đã tạo, nếu chưa thì tạm thời để trống */}
+      <Route path="/staff/patients" element={<PatientManagement />} />
+      <Route path="/staff/patients/new" element={<PatientForm />} />
+      <Route path="/staff/patients/edit/:id" element={<PatientForm />} />
+      <Route path="/staff/patients/:id/history" element={<VaccineHistory />} />
+      
     </Routes>
   );
 }
