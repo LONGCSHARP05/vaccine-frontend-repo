@@ -8,9 +8,10 @@
 
 .dashboard-page {
   min-height: 100vh;
-  background-color: #5c5eda; /* Màu nền của toàn bộ trang (Tím/Xanh) */
+  /* background-color: #5c5eda;  <-- Hãy thử COMMENT dòng này lại hoặc đổi thành màu xám nhạt */
+  background-color: #f4f7f6; 
   font-family: "Segoe UI", Tahoma, Arial, sans-serif;
-  color: #fff;
+  color: #333; /* Đổi màu chữ mặc định sang tối để dễ đọc trên nền sáng */
 }
 
 /* ===================================
@@ -21,8 +22,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 16px 40px;
-  background-color: #5c65de; 
-  border-bottom: 2px solid #4a52c3; /* Viền ngăn cách */
+  background-color: #f4f7f6; 
+  border-bottom: 2px solid #2b02b0; /* Viền ngăn cách */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -31,7 +32,7 @@
   font-weight: 700;
   text-align: center;
   flex-grow: 1;
-  color: white;
+  color: rgb(112, 176, 201);
   margin: 0;
 }
 
@@ -51,9 +52,10 @@
    2. KHUNG NỘI DUNG (Căn giữa, bóp viền)
    =================================== */
 .main-content {
-  max-width: 1200px; /* Độ rộng đủ lớn để chứa 3 thẻ to */
-  margin: 0 auto;    /* Căn giữa màn hình */
-  padding: 40px 20px;
+  width: 100%;       /* Thay max-width bằng width 100% */
+  max-width: none;   /* Loại bỏ giới hạn 1200px */
+  margin: 0;         /* Loại bỏ căn giữa tự động */
+  padding: 0;
 }
 
 /* ===================================
