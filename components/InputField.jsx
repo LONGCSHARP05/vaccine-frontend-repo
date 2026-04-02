@@ -1,14 +1,14 @@
-function InputField({ label, type = "text", value = "", onChange, className = "", ...rest }) {
+// Đã bỏ div bọc ngoài và label đi để khớp với cách gọi ở Login.jsx / Register.jsx
+function InputField({ type, value, onChange, className="", ...rest }) {
   return (
-    <div className={`input-field ${className}`}>
-      {label && <label>{label}</label>}
-      <input
-        type={type}
-        value={value}
-        onChange={onChange}
-        {...rest}
-      />
-    </div>
+    <input
+      type={type}
+      value={value}
+      onChange={onChange}
+      className={className}
+      required
+      {...rest}
+    />
   );
 }
 
