@@ -18,7 +18,7 @@ import '../assets/sidebar.css';
 const MENU_ITEMS = [
   { path: '/dashboard', label: 'Tổng quan', icon: LayoutDashboard },
   { path: '/vaccines', label: 'Quản lý danh mục vaccine', icon: Syringe },
-  { path: '/records', label: 'Quản lý sổ tiêm chủng', icon: BookOpenText },
+  { path: '/staff/patients', label: 'Quản lý sổ tiêm chủng', icon: BookOpenText },
   { path: '/appointments', label: 'Lịch tiêm chủng', icon: CalendarDays },
   { path: '/facilities', label: 'Đơn vị và nhân sự', icon: Building2 },
   { path: '/ai-insights', label: 'Thống kê và dự báo AI', icon: BrainCircuit },

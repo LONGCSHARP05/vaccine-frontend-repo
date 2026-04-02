@@ -8,6 +8,7 @@ export function usePatients() {
 
   const fetchPatients = async () => {
     try {
+
       setLoading(true);
       const data = await getPatients();
       setPatients(data);
