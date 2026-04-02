@@ -1,4 +1,18 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+import { getToken } from "../utils/storage";
+
+import VaccineSearch from "../pages/VaccineSearch";
+
+// Protected Route Component
+function ProtectedRoute({ children }) {
+  const token = getToken();
+  
+  if (!token) {
+    return <Navigate to="/login" replace />;
+  }
+  
+  return children;
+}
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Appointments from "../pages/Appointments";
@@ -25,10 +39,34 @@ function PlaceholderPage({ title }) {
 }
 
 function AppRoutes() {
+  const token = getToken();
+
   return (
     <Routes>
-      {/* Route Public */}
+      {/* Route Public & Điều hướng mặc định */}
+      <Route
+        path="/"
+        element={
+          token ? <Navigate to="/vaccines" replace /> : <Navigate to="/login" replace />
+        }
+      />
       <Route path="/login" element={<Login />} />
+
+      {/* CÁC ROUTE DÀNH CHO VACCINE (từ nhánh feature/toggle-view) */}
+      <Route
+        path="/vaccines"
+        element={
+          <ProtectedRoute>
+            <VaccineSearch />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/vaccinesearch"
+        element={<VaccineSearch />}
+      />
+
+      {/* CÁC ROUTE DÀNH CHO NHÂN VIÊN (từ nhánh main) */}
       <Route path="/register" element={<Register />} />
       
       {/* CÁC ROUTE DÀNH CHO NHÂN VIÊN */}

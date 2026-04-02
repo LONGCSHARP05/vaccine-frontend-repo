@@ -22,7 +22,7 @@ function Login() {
       localStorage.removeItem("rememberedEmail");
     }
 
-    navigate("/dashboard");
+    navigate("/vaccines");
   };
 
   const handleForgotPassword = () => {
@@ -156,5 +156,3 @@ function Login() {
 }
 
 export default Login;
-
-
